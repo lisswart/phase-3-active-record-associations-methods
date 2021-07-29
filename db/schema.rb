@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 2021_07_16_172742) do
     t.string "name"
     t.integer "artist_id"
     t.integer "genre_id"
+    t.index ["artist_id"], name: "index_songs_on_artist_id"
+    t.index ["genre_id"], name: "index_songs_on_genre_id"
   end
 
+  add_foreign_key "songs", "artists"
+  add_foreign_key "songs", "genres"
 end
